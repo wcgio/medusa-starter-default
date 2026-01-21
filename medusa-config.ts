@@ -1,4 +1,4 @@
-import { loadEnv, defineConfig } from '@medusajs/framework/utils'
+import {defineConfig, loadEnv} from '@medusajs/framework/utils'
 
 loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
@@ -11,6 +11,8 @@ module.exports = defineConfig({
       authCors: process.env.AUTH_CORS!,
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
-    }
+    },
+    // Redis 配置（如果使用）
+    redisUrl: process.env.REDIS_URL,
   }
 })
